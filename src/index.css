@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-text font-sans antialiased;
+    font-feature-settings: 'kern', 'ss01';
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(900px 500px at 85% -10%, rgba(56, 189, 248, 0.08), transparent 60%),
+      radial-gradient(700px 400px at 5% 20%, rgba(16, 185, 129, 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.25);
+    color: #f9fafb;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-ink-800/70 backdrop-blur-sm shadow-soft;
+  }
+
+  .card-hover {
+    @apply transition-colors duration-200 hover:border-ink-600;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[15px] font-medium transition-all duration-150 select-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand text-ink-950 hover:bg-brand-soft active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-ink-800/50 text-text hover:bg-ink-800 hover:border-ink-600;
+  }
+
+  .btn-quiet {
+    @apply btn text-text-dim hover:text-text;
+  }
+
+  .label {
+    @apply block text-sm text-text-dim mb-2;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-ink-900/60 px-4 py-3 text-text placeholder:text-text-mute outline-none transition-colors focus:border-brand;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-ink-800/60 px-3 py-1 text-xs text-text-dim;
+  }
+
+  .divider {
+    @apply h-px w-full bg-line;
+  }
+
+  .grid-soft-bg {
+    background-image:
+      linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
